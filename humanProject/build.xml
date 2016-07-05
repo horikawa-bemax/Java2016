@@ -1,0 +1,29 @@
+<project name="HumanProject" default="compile">
+
+	<property name="src" value="src"/>
+	<property name="build" value="build"/>
+	<property name="test.src" value="test/src"/>
+	
+	<path id="class.path">
+		<fileset dir="${build}"/>
+	</path>
+	
+	<target name="clear">
+		<delete dir="${build}"/>
+		<mkdir dir="${build}"/>
+	</target>
+	
+	<target name="compile" depends="clear">
+		<javac srcdir="${src}" destdir="${build}">
+			<classpath refid="class.path"/>
+		</javac>
+	</target>
+	
+	<target name="test">
+		<javac srcdir="${test.src}" destdir="${build}">
+			<classpath refid="class.path"/>
+		</javac>
+		<java classname="test.HumanTest" classpath="${build}"/>
+	</target>
+	
+</project>
