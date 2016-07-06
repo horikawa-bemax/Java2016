@@ -1,10 +1,12 @@
 package human;
 
 public abstract class Human{
-	private String name;
+	String name;
+	int age;
 	
-	public Human(String _name){
+	public Human(String _name, int _age){
 		name = _name;
+		age = _age;
 	}
 	
 	public String getName(){
@@ -12,4 +14,17 @@ public abstract class Human{
 	}
 	
 	public abstract void say();
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public void setAge(int age){
+		this.age = age;
+	}
+
+	public int getAge(){
+		return age;
+	}
+
 }
